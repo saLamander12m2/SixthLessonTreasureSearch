@@ -3,6 +3,7 @@ package com.msaggik.sixthlessontreasuresearch;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.TextView;
@@ -29,13 +30,14 @@ public class MainActivity extends AppCompatActivity {
         Random random = new Random();
 
         for (int i = 0; i < boxes.length; i++) {
-            boxes[i] = new Box(getRandomNumber(100, 1000), getRandomNumber(100, 1000), false); // Генерация числа от 0 до 500
+            boxes[i] = new Box(getRandomNumber(0, 919), getRandomNumber(-1, 1391), false); // Генерация числа от 0 до 500
         }
 
 
         output = findViewById(R.id.output);
         field = findViewById(R.id.field);
 
+        Log.i("MaxPx", "максимальный x: " + field.getMinWidth() + " максимальный y: " + field.getMinHeight());
         // обработка касания TextView field
         field.setOnTouchListener(listener);
     }
